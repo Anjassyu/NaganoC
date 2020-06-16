@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  customer_id: 1
+  name: MyString
+  postcode: MyString
+  address: MyString
+  created_at: 2020-06-16 05:09:10
+  updated_at: 2020-06-16 05:09:10
+
+two:
+  customer_id: 1
+  name: MyString
+  postcode: MyString
+  address: MyString
+  created_at: 2020-06-16 05:09:10
+  updated_at: 2020-06-16 05:09:10
