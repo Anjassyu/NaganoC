@@ -23,7 +23,7 @@ namespace :admin do
 end
 
 #customer
-    root "homes#top"   #会員topページ
+    root "products#top"   #会員topページ
     get "home/about" => "homes#about"  #aboutページ
     get '/customers/:id/withdrow' => 'customers#withdrow', as: 'withdrow_customer' #退会画面
     patch '/customers/:id/withdrow' => 'customers#switch', as: 'withdrow_switch_customer'  #退会処理
