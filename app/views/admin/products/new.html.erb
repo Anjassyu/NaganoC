@@ -1,0 +1,29 @@
+<div class="container">
+	<div class="row">
+		<h3 class="new_title">商品新規登録</h3>
+		<%= form_with model: @product, url: "/admin/products" do |f| %>
+		<div class="col-xs-4">
+			<%= attachment_image_tag @product.image, :image, :fill, 200, 300, fallback: "no_image.png", size: "250x150" %>
+			<%= f.attachment_field :image %>
+		</div>
+		<div class="col-xs-4">
+			<%= f.label :name, "商品名　　" %>
+			<%= f.text_field :name,class: "product_field" %><br>
+			<%= f.label :description, "商品説明　" %>
+			<%= f.text_area :description,class: "product_field product_description" %><br>
+			<%= f.label :genle_id, "ジャンル　" %>
+			<%= f.collection_select(:genre_id, @genres, :id, :name, prompt: "-- 選択してください --",class: "product_field") %><br>
+			<%= f.label :price, "税抜価格　" %>
+			<%= f.text_field :price,class: "product_field" %>円<br>
+			<span>販売</span><br>
+			<span>ステータス</span>	
+			<%= f.select :sales_status, [['販売中', true], ['販売停止', false]], prompt: "-- 選択してください --",class: "product_field" %>
+		</div>
+	</div>
+	<div class="text-right">
+		<%= f.submit "新規登録", class: "btn btn-primary btn-lg btn_new" %>
+	</div>
+	<% end %>
+</div>
+
+

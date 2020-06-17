@@ -3,6 +3,13 @@ class Product < ApplicationRecord
 	has_many :cart_items
 	has_many :orders, through: :ordered_products
 	belongs_to :genres
+
+	validates :name, presence: true
+	validates :genre_id, presence: true
+	validates :description, presence: true
+	validates :price, presence: true
+
+	attachment :image
 end
 
 
