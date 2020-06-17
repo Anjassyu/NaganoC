@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  namespace :admin do
-    get 'genres/index'
-  end
 devise_for :admins, controllers: {
   sessions:      'admins/sessions',
   passwords:     'admins/passwords',
@@ -27,7 +24,7 @@ end
     get "home/about" => "homes#about"  #aboutページ
     get '/customers/:id/withdrow' => 'customers#withdrow', as: 'withdrow_customer' #退会画面
     patch '/customers/:id/withdrow' => 'customers#switch', as: 'withdrow_switch_customer'  #退会処理
-    delete 'cart_items/destroy_all' => 'cart_items#destroy_all' #カートを空にする
+    delete 'cart_items/destroy_all' => 'cart_items#destroy_all'　#カートを空にする
     post '/orders/confirm' => 'orders#confirm', as: 'orders_confirm'  #購入確認ページ
     get '/orders/thanks' => 'orders#thanks'  #注文完了後のお礼ページ(サンクスページ)
     
