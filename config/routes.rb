@@ -31,7 +31,10 @@ end
     delete 'cart_items/destroy_all' => 'cart_items#destroy_all' #カートを空にする
     post '/orders/confirm' => 'orders#confirm', as: 'orders_confirm'  #購入確認ページ
     get '/orders/thanks' => 'orders#thanks'  #注文完了後のお礼ページ(サンクスページ)
+<<<<<<< HEAD
     get '/products/genre_products/:id' => 'products#genre_products', :action => 'genre_products'
+=======
+>>>>>>> origin/Develop
 
     resources :customers, :only => [:show, :edit, :update]
     resources :products, :only => [:show, :index]
