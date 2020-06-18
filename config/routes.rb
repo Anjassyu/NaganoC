@@ -4,11 +4,7 @@ devise_for :admins, controllers: {
   passwords:     'admins/passwords',
   registrations: 'admins/registrations'
 }
-devise_for :customers, controllers: {
-  sessions:      'customers/sessions',
-  passwords:     'customers/passwords',
-  registrations: 'customers/registrations'
-}
+devise_for :customers
 
 namespace :admin do
     root "admins#top"  #管理者topページ
@@ -24,7 +20,7 @@ end
     get "home/about" => "homes#about"  #aboutページ
     get '/customers/:id/withdrow' => 'customers#withdrow', as: 'withdrow_customer' #退会画面
     patch '/customers/:id/withdrow' => 'customers#switch', as: 'withdrow_switch_customer'  #退会処理
-    delete 'cart_items/destroy_all' => 'cart_items#destroy_all'　#カートを空にする
+    delete 'cart_items/destroy_all' => 'cart_items#destroy_all' #カートを空にする
     post '/orders/confirm' => 'orders#confirm', as: 'orders_confirm'  #購入確認ページ
     get '/orders/thanks' => 'orders#thanks'  #注文完了後のお礼ページ(サンクスページ)
     
