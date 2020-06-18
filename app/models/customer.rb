@@ -8,5 +8,13 @@ class Customer < ApplicationRecord
 	has_many :deliveries, dependent: :destroy
 	has_many :cart_items, dependent: :destroy
 
+    def fullname_kanji
+		[family_name_kanji, first_name_kanji].join('')
+	end
+
+	def fullname_kana
+		[family_name_kana, first_name_kana].join('')
+	end
+
 
 end
