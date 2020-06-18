@@ -7,7 +7,11 @@ devise_for :admins, controllers: {
   passwords:     'admins/passwords',
   registrations: 'admins/registrations'
 }
-devise_for :customers
+devise_for :customers, controllers: {
+  sessions:      'customers/sessions',
+  passwords:     'customers/passwords',
+  registrations: 'customers/registrations'
+}
 
 namespace :admin do
     root "admins#top"  #管理者topページ
@@ -26,7 +30,7 @@ end
     delete 'cart_items/destroy_all' => 'cart_items#destroy_all' #カートを空にする
     post '/orders/confirm' => 'orders#confirm', as: 'orders_confirm'  #購入確認ページ
     get '/orders/thanks' => 'orders#thanks'  #注文完了後のお礼ページ(サンクスページ)
-    
+
     resources :customers, :only => [:show, :edit, :update]
     resources :products, :only => [:show, :index]
     resources :cart_items, :only => [:create, :update, :destroy, :index]

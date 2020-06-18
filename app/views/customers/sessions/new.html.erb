@@ -1,32 +1,42 @@
-<div class='container'>
-
+<div class='login'>
   <div class="row">
-    <div class="offset-3">
-    <strong class="container-guide">会員の方はこちらからログイン</strong>
-    </div>
-  </div>
+    <h4>会員の方はこちらからログイン</h4>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
-    <%= f.label :メールアドレス %>
+    <%= f.label :メールアドレス %>　
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="field">
-    <%= f.label :パスワード %>
+    <%= f.label :パスワード %>　　　
     <%= f.password_field :password, autocomplete: "current-password" %>
   </div>
- <!--  <%= link_to "→ パスワードをお忘れの方はこちら",edit_customer_registration_path %> -->
+ <%= link_to "→ パスワードをお忘れの方はこちら",new_customer_password_path %>
 
   <div class="actions">
     <%= f.submit "ログイン",class: "btn btn-primary" %>
   </div>
 <% end %>
-<div class="row">
-    <div class="offset-3">
-    <strong>登録がお済みでない方</strong>
-    </div>
-  </div>
-<%= link_to "こちら",new_customer_registration_path,class: "btn btn-outline-danger" %>    から新規登録を行ってください。
 
+  <h4>登録がお済みでない方</h4>
+<%= link_to "こちら",new_customer_registration_path,class: "btn btn-outline-danger" %>    から新規登録を行ってください。
 </div>
+</div>
+
+<style>
+  .login {
+    margin: 200px;
+    padding:30px;
+    display: flex;
+    justify-content: center;
+    margin-top:40px;
+  }
+  h4{
+    padding: 15px;
+  }
+
+  .field{
+    margin: 10px;
+  }
+</style>
