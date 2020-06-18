@@ -1,24 +1,38 @@
 <div class="container">
 	<div class="row">
 		<h3 class="new_title">商品詳細</h3>
-		<div class="col-xs-4">
+		<div class="col-xs-3">
 			<%= attachment_image_tag @product, :image, :fill, 150, 250, fallback: "no_image.png", size: "250x150" %>
 		</div>
-		<div class="col-xs-4">
-			<span class="product_contents">商品名　　</span>
-			<span class="product_text"><%= @product.name %></span><br>
-			<span class="product_contents">商品説明　</span>
-			<span class="product_text"><%= @product.description %></span><br>
-			<span class="product_contents">ジャンル　</span>
-			<span class="product_text"><%= @product.genre.name %></span><br>
-			<span class="product_contents">税込価格（税抜価格）　</span>
-			<span class="product_text"><%= (@product.price * 1.1).to_i %>円（<%= @product.price %>円）</span><br>
-			<span class="product_contents">販売ステータス　</span>
+		<div class="col-xs-6">
+			<table class="table table_show">
+		<tr>
+			<td class="product_contents">商品名　　</td>
+			<td class="product_text"><%= @product.name %></td>
+		</tr>
+		<tr>
+			<td class="product_contents">商品説明　</td>
+			<td class="product_text"><%= @product.description %></td>
+		</tr>
+		<tr>
+			<td class="product_contents">ジャンル　</td>
+			<td class="product_text"><%= @product.genre.name %></td>
+		</tr>
+		<tr>
+			<td class="product_contents">税込価格（税抜価格）　</td>
+			<td class="product_text"><%= (@product.price * 1.1).to_i %>円（<%= @product.price %>円）</td>
+	</tr>
+	<tr>
+			<td class="product_contents">販売ステータス　</td>
+			<td class="product_text">
 			<% if @product.sales_status == true %>
-		    <span class="product_text">販売中</span>
+        販売中
 		  <% else @product.sales_status == false %>
-		    <span class="product_text">販売停止</span>
-		  <% end %>
+		    販売停止
+		    <% end %>
+		  </td>
+		</tr>
+	</table>
 		</div>
 	</div>
 	<div class="text-right">

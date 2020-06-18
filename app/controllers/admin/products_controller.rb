@@ -5,30 +5,37 @@ class Admin::ProductsController < ApplicationController
 	end
 
 	def index
-		@products = Product.all
+		@products = Product.page(params[:page])
 	end
 		
 	def new
 		@product = Product.new
-		@genres = Genre.all
 	end
 
 	def create
 		@product = Product.new(product_params)
-		@product.save!
-  	path = Rails.application.routes.recognize_path(request.referer)
-    redirect_to path
+		if @product.save
+    	redirect_to admin_products_path, notice: '商品を新規登録しました。'
+    else
+    	render "new"
+    end
 	end
 	
 	def show
 		@product = Product.find(params[:id])
-		@genre = Genre.find_by(id: @product.genre_id)
 	end
 	
 	def edit
+		@product = Product.find(params[:id])
 	end
 	
 	def update
+		@product = Product.find(params[:id])
+		if @product.update(product_params)
+			redirect_to admin_products_path, notice: '商品情報を更新しました。'
+		else
+			render "edit"
+		end
 	end
 
   private

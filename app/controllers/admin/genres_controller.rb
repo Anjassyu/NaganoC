@@ -6,10 +6,14 @@ class Admin::GenresController < ApplicationController
 	end
 
 	def create
+    @genres = Genre.all
 		@genre = Genre.new(genre_params)
-  	@genre.save
-  	path = Rails.application.routes.recognize_path(request.referer)
-    redirect_to path
+  	if @genre.save
+  	   path = Rails.application.routes.recognize_path(request.referer)
+       redirect_to path, notice: '商品ジャンルを追加しました。'
+    else
+      render "index"
+    end
   end
 
   def edit
@@ -17,9 +21,12 @@ class Admin::GenresController < ApplicationController
   end
 
   def update
-  	@genre = Genre.find(params[:id])
-  	@genre.update(genre_params)
-  	redirect_to admin_genres_path
+    @genre = Genre.find(params[:id])
+  	if @genre.update(genre_params)
+  	   redirect_to admin_genres_path, notice: '商品ジャンルを更新しました。'
+    else
+      render "edit"
+    end
   end
 
   private
