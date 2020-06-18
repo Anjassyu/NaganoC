@@ -1,7 +1,8 @@
 <div class="container">
 	<div class="row">
-		<div class="col-xs-10">
+		<div class="col-xs-12">
 			<h3>商品一覧</h3>
+			<table class="table">
 			<tr>
 				<th>商品ID</th>
 				<th>商品名</th>
@@ -15,8 +16,16 @@
 				<td><%= product.name %></td>
 				<td><%= product.price %></td>
 				<td><%= product.genre.name %></td>
-				<td><%= product.sales_status %></td>
+				<td>
+			<% if product.sales_status == true %>
+		    販売中
+		  <% elsif product.sales_status == false %>
+		    販売停止
+		  <% end %>
+				</td>
 			</tr>
+			<% end %>
+		</table>
 		</div>
 	</div>
 </div>

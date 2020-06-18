@@ -14,9 +14,15 @@ class Admin::ProductsController < ApplicationController
 	end
 
 	def create
+		@product = Product.new(product_params)
+		@product.save!
+  	path = Rails.application.routes.recognize_path(request.referer)
+    redirect_to path
 	end
 	
 	def show
+		@product = Product.find(params[:id])
+		@genre = Genre.find_by(id: @product.genre_id)
 	end
 	
 	def edit
@@ -28,6 +34,8 @@ class Admin::ProductsController < ApplicationController
   private
 
   def product_params
-  	params.require(:product).permit(:name, :description, :price, :sales_status, :image)
+  	params.require(:product).permit(:genre_id, :name, :description, :price, :sales_status, :image)
   end
+
+
 end

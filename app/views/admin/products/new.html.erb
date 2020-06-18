@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="row">
 		<h3 class="new_title">商品新規登録</h3>
-		<%= form_with model: @product, url: "/admin/products" do |f| %>
+		<%= form_for @product, url: "/admin/products" do |f| %>
 		<div class="col-xs-4">
 			<%= attachment_image_tag @product.image, :image, :fill, 200, 300, fallback: "no_image.png", size: "250x150" %>
 			<%= f.attachment_field :image %>
@@ -11,8 +11,8 @@
 			<%= f.text_field :name,class: "product_field" %><br>
 			<%= f.label :description, "商品説明　" %>
 			<%= f.text_area :description,class: "product_field product_description" %><br>
-			<%= f.label :genle_id, "ジャンル　" %>
-			<%= f.collection_select(:genre_id, @genres, :id, :name, prompt: "-- 選択してください --",class: "product_field") %><br>
+			<%= f.label :genre_id, "ジャンル　" %>
+			<%= f.collection_select(:genre_id, @genres, :id, :name, prompt: "-- 選択してください --", class: "col-sm-9 genre_id") %><br>
 			<%= f.label :price, "税抜価格　" %>
 			<%= f.text_field :price,class: "product_field" %>円<br>
 			<span>販売</span><br>
