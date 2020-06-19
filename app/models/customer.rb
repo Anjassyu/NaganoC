@@ -8,6 +8,9 @@ class Customer < ApplicationRecord
 	has_many :deliveries, dependent: :destroy
 	has_many :cart_items, dependent: :destroy
 
+	def active_for_authentication?
+      super && (self.admission_status == true) #会員ステータスが退会だとログインできない
+    end
 
     def fullname_kanji
 		[family_name_kanji, first_name_kanji].join('')

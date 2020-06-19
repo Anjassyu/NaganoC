@@ -8,23 +8,8 @@
 
 <div class="switch">
 <%= link_to "退会しない" ,customer_path(current_customer), class: "btn btn-primary btn-lg" %>　　
-<%= link_to "退会する" , withdrow_switch_customer_path(@customer),method: :patch, class: "btn btn-danger btn-lg" %>
+<%= link_to "退会する" , withdrow_switch_customer_path(@customer),method: :patch,"data-confirm" => "本当に退会しますか？", class: "btn btn-danger btn-lg" %>
 </div>
 
 </div>
 
-<style>
-  .withdrow {
-    justify-content: center;
-    margin-top:100px;
-    padding-left: 400px;
-  }
-  .really{
-  	margin-bottom: 50px;
-  	padding-left: 180px;
-  	justify-content: center;
-  }
-  .switch{
-  	padding-left: 150px;
-  }
-</style>
