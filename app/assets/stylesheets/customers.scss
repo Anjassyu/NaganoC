@@ -1,3 +1,43 @@
 // Place all the styles related to the customers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+  .login {
+    margin: 200px;
+    padding:30px;
+    display: flex;
+    justify-content: center;
+    margin-top:40px;
+  }
+  h4{
+    padding: 15px;
+  }
+
+  .sign_up {
+    margin: 200px;
+    padding:50px;
+    display: flex;
+    justify-content: center;
+    margin-top:50px;
+  }
+  .field{
+    margin: 5px;
+  }
+
+  .head{
+    padding: 20px 70px;
+  }
+
+  .withdrow {
+    justify-content: center;
+    margin-top:100px;
+    padding-left: 400px;
+  }
+  .really{
+  	margin-bottom: 50px;
+  	padding-left: 180px;
+  	justify-content: center;
+  }
+  .switch{
+  	padding-left: 150px;
+  }

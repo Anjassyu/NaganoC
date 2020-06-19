@@ -1,4 +1,4 @@
-<div class="sign_in">
+<div class="sign_up">
   <div class="row">
     <h3>新規会員登録</h3>
 
@@ -31,7 +31,7 @@
 
         <div class="field">
           <%= f.label :住所 %>　　　　　　　　　　
-          <%= f.text_field :address, autocomplete: "address" %>
+          <%= f.text_field :address, autocomplete: "address",:size=>"60" %>
         </div>
 
         <div class="field">
@@ -62,15 +62,3 @@
   </div>
 </div>
 
-<style>
-  .sign_in {
-    margin: 200px;
-    padding:50px;
-    display: flex;
-    justify-content: center;
-    margin-top:50px;
-  }
-  .field{
-    margin: 5px;
-  }
-</style>
