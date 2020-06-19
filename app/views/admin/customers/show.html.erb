@@ -5,7 +5,7 @@
 			　	<table class="table">
 						<tr>
 							<th>会員ID</th>
-							<td><%= @customer.id %></td>
+							<td><%= @customer.id %><span class="bg-info admission"><%= @customer.admission_status_name+"会員"%></span></td>
 						</tr>
 
 						<tr>
@@ -32,6 +32,9 @@
 						<tr>
 							<th>メールアドレス</th>
 							<td><%= @customer.email%></td>
+						</tr>
+						<tr>
+							<th>会員ステータス</th>
 						</tr>
 
 				</table>

@@ -3,7 +3,7 @@
 
 			<h3><%= @customer.fullname_kanji %>さんの会員情報編集</h3>
 
-				<%= form_with model:@customer do |f| %>
+				<%= form_for @customer do |f| %>
 					<table class="table">
 						<tr>
 							<th>会員ID</th>
@@ -38,6 +38,10 @@
 							<td colspan="2"><%= f.text_field :tel, class: "form-control"%></td>
 						</tr>
 						<tr>
+							<th><%= f.label :tel, "メールアドレス"%></th>
+							<td colspan="2"><%= f.text_field :email, class: "form-control"%></td>
+						</tr>
+						<tr>
 							<th>会員ステータス</th>
 							<td>
 								<%= f.radio_button :admission_status, false %>
@@ -45,7 +49,7 @@
 							</td>
 							<td>
 								<%= f.radio_button :admission_status, false %>
-								<%= f.label :admission_status, "無効", value: false %>
+								<%= f.label :admission_status, "退会済み", value: false %>
 							</td>
 						</tr>
 
