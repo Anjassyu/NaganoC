@@ -5,12 +5,12 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :メールアドレス %>　
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email",:size=>"60"%>
   </div>
 
   <div class="field">
     <%= f.label :パスワード %>　　　
-    <%= f.password_field :password, autocomplete: "current-password" %>
+    <%= f.password_field :password, autocomplete: "current-password",:size=>"60" %>
   </div>
  <%= link_to "→ パスワードをお忘れの方はこちら",new_customer_password_path %>
 
@@ -24,19 +24,3 @@
 </div>
 </div>
 
-<style>
-  .login {
-    margin: 200px;
-    padding:30px;
-    display: flex;
-    justify-content: center;
-    margin-top:40px;
-  }
-  h4{
-    padding: 15px;
-  }
-
-  .field{
-    margin: 10px;
-  }
-</style>
