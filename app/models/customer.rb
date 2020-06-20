@@ -13,8 +13,27 @@ class Customer < ApplicationRecord
   	family_name_kanji + first_name_kanji
   end
 
+  def fullname_kanji
+    [family_name_kanji, first_name_kanji].join('')
+  end
+
+  def fullname_kana
+    [family_name_kana, first_name_kana].join('')
+  end
+
+
 	def active_for_authentication?
       super && (self.admission_status == true) #会員ステータスが退会だとログインできない
+  end
+
+  def admission_status_name
+
+    if admission_status == true
+      return "有効"
+
+    else
+      return "退会済"
+    end
   end
 
 end
