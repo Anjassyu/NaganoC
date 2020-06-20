@@ -1,0 +1,27 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12">
+			<h3>注文情報入力</h3>
+			<h3>支払い方法</h3>
+		<%= form_with model:@order, url:orders_confirm_path, method: :post do |f| %>
+		<%= f.radio_button :payment, :クレジットカード	, checked: "checked" %>
+    <%= f.label :クレジットカード, class: "payment" %><br>
+    <%= f.radio_button :payment, :銀行振込%>
+    <%= f.label :銀行振込, class: "payment" %>
+    	<h3>お届け先</h3>
+    	<%= f.radio_button :addresses, "your_address", checked: "checked" %>
+    		ご自身の住所<br>
+    		<%= current_customer.postcode %>
+    		<%= current_customer.address %>
+				<%= current_customer.full_name %><br>
+    	<%= f.radio_button :addresses, "registered_address" %>
+				<%= f.collection_select(:delivery_id, Delivery.all, :id, :name, class: "col-sm-9 genre_id") %><br>
+			<%= f.radio_button :addresses, "new_address" %>
+			郵便番号（ハイフンなし）<%= f.text_field :postcode %><br>
+			住所　　　　　　　　　　　<%= f.text_field :address %><br>
+			宛名　　　　　　　　　　　<%= f.text_field :name %><br>
+			<%= f.submit "確認画面へ進む", class: "btn btn-primary" %>
+    <% end %>
+		</div>
+	</div>
+</div>

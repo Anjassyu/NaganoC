@@ -1,0 +1,27 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-8">
+			<h3>注文情報確認</h3>
+			<table class="table">
+				<tr>
+					<td>商品名</td>
+					<td>単価（税込）</td>
+					<td>数量</td>
+					<td>小計</td>
+				</tr>
+				<tr>
+					<%= @cart_items.each do |cart| %>
+					<td>
+						<%= attachment_image_tag cart.product, :image, :fill, 50, 100, fallback: "no_image.png", size: "100x50" %>
+						<%= cart.product.name %>
+					</td>
+					<td><%= tax_included %></td>
+					<td><%= subtotal %></td>
+
+
+				</tr>
+				<% end %>
+			</table>
+		</div>
+	</div>
+</div>
