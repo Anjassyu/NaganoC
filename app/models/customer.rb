@@ -9,4 +9,11 @@ class Customer < ApplicationRecord
 	has_many :cart_items, dependent: :destroy
 
 
+	def full_name
+  	family_name_kanji + first_name_kanji
+  end
+
+	def active_for_authentication?
+      super && (self.admission_status == true) #会員ステータスが退会だとログインできない
+
 end

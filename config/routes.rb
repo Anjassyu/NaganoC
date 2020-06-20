@@ -14,8 +14,8 @@ devise_for :customers, controllers: {
 }
 
 namespace :admin do
-    root "admins#top"  #管理者topページ
-    resources :product, :except => :destroy
+    root "products#top"  #管理者topページ
+    resources :products, :except => :destroy
     resources :genres, :only => [:edit, :update, :create, :index]
     resources :customers, :only => [:edit, :update, :show, :index]
     resources :ordered_products, :only => :update
