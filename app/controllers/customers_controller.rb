@@ -1,6 +1,4 @@
 class CustomersController < ApplicationController
-<<<<<<< HEAD
-=======
 
 	def show
 	end
@@ -19,4 +17,3 @@ class CustomersController < ApplicationController
 		@customer = Customer.find(params[:id])
 	end
 end
->>>>>>> origin/Develop

@@ -11,8 +11,8 @@ def index
 end
 
 def genre_products
-@genre = Genre.find(params[:id])
-@products = Product.where(genre_id: @genre_id)
+	@genre = Genre.find(params[:id])
+	@products = Product.where(genre_id: @genre_id)
 end	
 
 
