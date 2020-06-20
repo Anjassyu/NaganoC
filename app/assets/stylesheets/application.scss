@@ -16,3 +16,21 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";          
 
+*{
+	margin: 0;
+	padding: 0;
+}
+.header_table tr td{
+	border: none!important;
+}
+.header{
+		background-color: #faebd7;
+}
+.header_content{
+	height: 120px;
+	line-height: 120px;
+}
+.search_field{
+	height : 30px;
+	width: 200px;
+}

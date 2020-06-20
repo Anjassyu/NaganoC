@@ -9,6 +9,18 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+    <% if current_customer.nil? && current_admin.nil? %>
+    <%= render 'layouts/logout_header' %>  
+    <% end %>
+    
+    <% if customer_signed_in? %>
+    <%= render 'layouts/customer_header' %>
+    <% end %>
+
+    <% if admin_signed_in? %>
+    <%= render 'layouts/admin_header' %>
+    <% end %>
+
   <body>
     <%= yield %>
   </body>
