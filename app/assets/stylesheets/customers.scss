@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
   .login {
     margin: 200px;
     padding:30px;
@@ -41,3 +42,17 @@
   .switch{
   	padding-left: 150px;
   }
+
+  .btn-customeredit{
+
+  mergin-right:50px ;
+}
+
+.table tr,th,td{
+  border-top: 0px !important;
+  border-bottom: 0px !important;
+}
+
+table th{
+  width:150px ;
+}

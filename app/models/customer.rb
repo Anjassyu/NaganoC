@@ -15,5 +15,5 @@ class Customer < ApplicationRecord
 
 	def active_for_authentication?
       super && (self.admission_status == true) #会員ステータスが退会だとログインできない
-  end
+
 end
