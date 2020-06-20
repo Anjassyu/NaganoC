@@ -4,10 +4,10 @@
 			<h3><%= @customer.fullname_kanji %>さんの会員情報編集</h3>
 
 				<%= form_with model:@customer, local: true, url: "/admin/customers/#{@customer.id}" do |f| %>
-					<table class="table">
+					<table class="table borderless">
 						<tr>
 							<th>会員ID</th>
-							<td><%= @customer.id %></td>
+							<td colspan="2"><%= @customer.id %></td>
 						</tr>
 
 
