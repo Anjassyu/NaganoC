@@ -1,6 +1,6 @@
 <div class="my_page">
   <div class="row">
-    <h3 class="head">マイページ</h3>
+    <h3 class=my>マイページ</h3>
 
 <strong class=>登録情報</strong>　
 <%= link_to"編集する",edit_customer_path,class: "btn btn-primary" %>　
@@ -34,10 +34,6 @@
 		<th>メールアドレス</th>
 		<th><%=@customer.email %></th>
 	</tr>
-	<tr class="border">
-		<th>メ</th>
-		<th><%=@customer.admission_status %></th>
-	</tr>
     </thead>
 </table>
 
@@ -52,10 +48,6 @@
 
 　<!-- #showページ用 -->
   <style>
-  .my_page{
-  	padding: 30px 0 50px 100px;
-  }
-
   .table1{
   	margin: 20px 0;
   }
