@@ -1,0 +1,52 @@
+<div class="container">
+<div class="row">
+<% if flash[:notice] %>
+  <p><%= flash[:notice] %></p>
+<% end %>
+<h2>配送先登録/一覧</h2>
+
+
+<%= form_with url: "/deliveries", method: :post, local: true do |form| %>
+		    <div class="field">
+           <%= form.label :postcode, "郵便番号（ハイフンなし" %>
+           <%= form.text_field :postcode %>
+        </div>
+        <div class="field">
+           <%= form.label :address, "住所" %>
+           <%= form.text_field :address %>
+        </div>
+        <div class="field">
+        	<%= form.label :name, "宛名" %>
+        	<%= form.text_field :name %>
+        </div>
+
+        <div clsss="btn">
+        	<%= form.submit('登録する', class: 'btn btn-primary') %>
+        </div>
+</tbody>
+<% end %>
+
+<table class="table table-striped">
+        <thead>
+          <tr>
+            <th>郵便番号</th>
+            <th>住所</th>
+            <th>宛名</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @deliveries.each do |delivery| %>
+              <tr>
+                <td><%= delivery.postcode %></td>
+                <td><%= delivery.address %></td>
+                <td><%= delivery.name %></td>
+                <td><%= link_to '編集する', edit_delivery_path(delivery.id) %></td>
+                <td><%= link_to 'Destroy', delivery, method: :delete, data: { confirm: 'Are you sure?' }, class: "destroy_#{delivery.id}" %></td>
+              </tr>  
+          <% end %>
+         </tbody>
+</div>
+</div>
+
+
