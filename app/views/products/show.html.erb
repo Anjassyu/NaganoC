@@ -1,0 +1,30 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-3">サイドバー</div>
+
+		<div class="col-xs-3">
+			<div class="row row-ec-product-show">
+				<%= attachment_image_tag @product, :image, class: "img-responsive", fallback: "no_image.png" %>
+			</div>
+		</div>
+
+		<div class="ec-product-box col-xs-6 align-items-center">
+			<div class="row row-ec-product-show">
+
+			<h3><storong><%= @product.name %></storong></h3>
+			<p class="ec-product-text"><%= @product.description %></p>
+			<p class="ec-product-text">¥<%= @product.price %>(税抜き)</p>
+
+			<%= form_for (@cart_item) do |f| %>
+				<% if customer_signed_in? %>
+					<%= f.hidden_field :customer_id, :value => current_customer.id %>
+				<% end %>
+					<%= f.label :count, '個数' %>
+				    <%= f.select :count, {'1':1,'2':2,'3':3,'4':4,'5':5,'6':6}, { include_blank: '選択してください'}, { required: true } %>
+        			<%= f.hidden_field :product_id, :value => @product.id %>
+					<%= f.submit "カートに入れる", class: "btn btn-primary" %>
+			<% end %>
+		</div>
+		</div>
+	</div>
+</div>
