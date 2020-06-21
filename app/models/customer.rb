@@ -8,6 +8,17 @@ class Customer < ApplicationRecord
 	has_many :deliveries, dependent: :destroy
 	has_many :cart_items, dependent: :destroy
 
+  validates :email, presence: true
+  validates :password, presence: true
+  validates :family_name_kanji, presence: true,format: { with: /\A[一-龥]+\z/}
+  validates :family_name_kana, presence: true,format: { with: /\A[ァ-ヶー－]+\z/}
+  validates :first_name_kanji, presence: true,format: { with: /\A[一-龥]+\z/}
+  validates :first_name_kana, presence: true,format: { with: /\A[ァ-ヶー－]+\z/ }
+  validates :postcode, presence: true
+  validates :address, presence: true
+  validates :tel, presence: true,format: { with: /\A\d{10,11}\z/ }
+  validates :admission_status, inclusion: { in: [true, false] }
+
 
 	def full_name
   	family_name_kanji + first_name_kanji

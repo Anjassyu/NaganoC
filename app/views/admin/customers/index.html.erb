@@ -5,7 +5,7 @@
 			　	<table class="table">
 						<tr class="active">
 							<th>会員ID</th>
-							<th><%= link_to "氏名",admin_customers_path %></th>
+							<th>氏名</th>
 							<th>メールアドレス</th>
 							<th>ステータス</th>
 						</tr>
@@ -14,12 +14,15 @@
 
 						<tr>
 							<td><%= customer.id %></td>
-							<td><%= link_to customer.fullname_kanji,admin_customers_path %></td>
+							<td><%= link_to customer.fullname_kanji,admin_customer_path(customer.id),:style=>"color:black;"  %></td>
 							<td><%= customer.email %></td>
 							<td><%= customer.admission_status_name %></td>
 						</tr>
 
 					<% end %>
 				</table>
+			<div class="col-xs-12 text-center pagination">
+					<%= paginate @customers %>
+			</div>
 	</div>
 </div>
