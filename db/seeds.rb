@@ -22,3 +22,6 @@ Customer.create!(
     tel: '09011111111',
 	admission_status: true)
 
+
+
+

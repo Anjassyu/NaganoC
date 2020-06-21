@@ -1,0 +1,26 @@
+<div class="container">
+<div class="row">
+<h1>配送先編集</h1>
+<%= form_for @delivery do |form| %>
+<tbody>
+<div class="field">
+    <%= form.label :postcode,"郵便番号（ハイフンなし" %>
+    <%= form.text_field :postcode %>
+</div>
+<div class="field">
+    <%= form.label :address, "住所" %>
+    <%= form.text_field :address %>
+</div>
+<div class="field">
+    <%= form.label :name, "宛名" %>
+    <%= form.text_field :name %>
+</div>
+
+<div clsss="btn">
+    <%= form.submit('編集する', class: 'btn btn-primary') %>
+</div>
+</tbody>
+
+</div>
+</div>
+<% end %>

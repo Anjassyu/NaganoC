@@ -8,8 +8,27 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
+    <% if current_customer.nil? && current_admin.nil? %>
+    <%= render 'layouts/logout_header' %>
+    <% end %>
+
+    <% if customer_signed_in? %>
+    <%= render 'layouts/customer_header' %>
+    <% end %>
+
+    <% if admin_signed_in? %>
+    <%= render 'layouts/admin_header' %>
+    <% end %>
+
+    <div id="wrapper">
     <%= yield %>
+     </div>
+
+    <footer>
+    <h4>あなたとあなたの大切な方へ　　　　
+        ©CopyRight　　ながのCAKE　 All Rights Reserved.</h4>
+    </footer>
+
   </body>
 </html>
