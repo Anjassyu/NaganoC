@@ -21,4 +21,3 @@ Customer.create!(
 	address: '東京都渋谷区渋谷１−２−３',
     tel: '09011111111',
 	admission_status: true)
-
