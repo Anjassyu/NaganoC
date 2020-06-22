@@ -6,9 +6,11 @@
 	width:100px;
 }
 
-.row{
-	width:600px;
-}
 .admission{
  margin-left:20px ;
+}
+
+.borderless td,
+.borderless th {
+    border: 0 none !important;
 }

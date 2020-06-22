@@ -49,4 +49,6 @@ class CartItemsController < ApplicationController
    end
      return (total_price * 1.1).floor
    end
+
 end
+
