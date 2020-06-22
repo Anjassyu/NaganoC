@@ -15,5 +15,8 @@ validates :name,{
 	presence: true,
 	length: {minimum: 1}
 }
+	def order_address
+		self.postcode + self.address + self.name
+	end
 end
 
