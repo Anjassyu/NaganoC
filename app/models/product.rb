@@ -12,10 +12,6 @@ class Product < ApplicationRecord
 
 	attachment :image
 
-	def tax_included
-		(self.price * 1.10).to_i
-	end
-
 end
 
 
