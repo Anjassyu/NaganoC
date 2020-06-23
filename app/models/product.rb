@@ -11,11 +11,13 @@ class Product < ApplicationRecord
 	validates :sales_status, inclusion: { in: [true, false] }
 
 	attachment :image
+    scope :from_genre, -> (genre_id){ where( genre_id: genre_id )}
+
 
 	def tax_included
 		(self.price * 1.10).to_i
 	end
 
-end
 
+end
 

@@ -7,3 +7,29 @@
  <li><%= link_to " Login", new_customer_session_path %>
 
 <% end %>
+
+
+<%#= render '/products/genres_products', products: @genres_products %>
+
+
+<div class='row'>
+<div class='col-xs-3'>
+<table class="table genre_table">
+
+        <thead>
+          <tr>
+            <th>ジャンル検索</th>
+          </tr>
+        </thead>
+<% @genres.each do |genre| %>
+		<tbody>
+		  <tr>
+			<td><% link_to genre.name, "/products/genre_products/#{genre.id}" %></td>
+		  </tr>
+	    </tbody>
+<% end %>
+
+
+
+</div>
+</div>
