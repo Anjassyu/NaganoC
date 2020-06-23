@@ -3,6 +3,9 @@ class OrdersController < ApplicationController
 	def new
 		@order = Order.new
 		@derivery_address = Delivery.where(customer: current_customer)
+		if current_customer.cart_items.blank? == true
+			redirect_to root_path, notice: "カートが空です。"
+		end
 	end
 
 	def confirm
@@ -28,13 +31,21 @@ class OrdersController < ApplicationController
     	@order.postcode = params[:order][:postcode]
     	@order.address = params[:order][:address]
     	@order.name = params[:order][:name]
+
+    	if @order.postcode.blank? == true || @order.address.blank? == true || @order.name.blank? == true 
+       redirect_to new_order_path, notice: "ご入力に不備があります。"
+    	end
     end
 	end
 
 	def create
 		@order = current_customer.orders.new(order_params)
-		@order.save
-		redirect_to orders_thanks_path, notice: "ご注文が確定しました。"
+		if @order.save!
+			redirect_to orders_thanks_path, notice: "ご注文が確定しました。"
+		else
+			@derivery_address = Delivery.where(customer: current_customer)
+			render :new
+		end
 
 		@cart_items = current_customer.cart_items
     @cart_items.each do |cart_item|
