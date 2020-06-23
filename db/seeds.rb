@@ -21,3 +21,20 @@ Customer.create!(
 	address: '東京都渋谷区渋谷１−２−３',
     tel: '09011111111',
 	admission_status: true)
+
+Genre.create!(
+	name: 'プリン',
+	effectiveness: true)
+
+Product.create!(
+	genre_id: 1,
+    name: 'イタリアンプリン',
+    description: '大人気',
+    price: 280,
+    sales_status: true)
+
+Delivery.create!(
+	customer_id: 1,
+	name: '浜田　雅功',
+	postcode: '1234567',
+	address: '東京都新宿区歌舞伎町')
