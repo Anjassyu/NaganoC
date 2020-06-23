@@ -2,7 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
   .login {
     margin: 200px;
     padding:30px;
@@ -28,8 +27,15 @@
   .my_page{
     padding: 20px 70px;
   }
+  .table1{
+    margin: 20px 0;
+  }
+  .border{
+    border: 1px solid black;
+    padding: 10px;
+  }
 
-   .select{
+  .select{
     padding: 15px 80px;
   }
 
@@ -48,8 +54,7 @@
   }
 
   .btn-customeredit{
-
-  mergin-right:50px ;
-}
+    mergin-right:50px ;
+  }
 
 
