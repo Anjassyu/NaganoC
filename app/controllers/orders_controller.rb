@@ -58,9 +58,12 @@ class OrdersController < ApplicationController
 	end
 
 	def index
+		@orders = Order.all
 	end
 
 	def show
+		@order = Order.find(params[:id])
+		@ordered_products = @order.ordered_products
 	end
 	
 	private

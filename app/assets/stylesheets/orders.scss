@@ -1,3 +1,54 @@
 // Place all the styles related to the orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.order_title{
+	margin-top: 50px;
+	margin-left: 150px;
+}
+.order_form{
+	margin-left: 50px;
+	font-size: 20px;
+}
+.order_postcode{
+	margin-left: 11px;
+}
+.btn_order_form{
+	margin-left: 500px;
+	margin-top: 20px;
+	width: 200px;
+}
+.order_table th{
+	font-size: 20px
+}
+.order_table td{
+	font-size: 18px;
+}
+.order_address{
+	margin-top: 30px;
+}
+.btn_order_true{
+	margin-top: 30px;
+	margin-left: 500px;
+	width: 200px;
+}
+.order_confirm_title{
+	margin-top: 50px;
+	margin-left: 200px;
+	padding-bottom: 0;
+}
+.order_thanks{
+	text-align: center;
+	line-height: 500px;
+}
+.table_title{
+	position: absolute;
+	top: 15px;
+}
+.order_show_taitle{
+	margin-top: 50px;
+	margin-left: 200px;
+}
+.order_index_title{
+	margin-top: 50px;
+	margin-left: 200px;
+}
