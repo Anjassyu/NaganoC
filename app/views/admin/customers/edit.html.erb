@@ -4,6 +4,17 @@
 			<h3><%= @customer.fullname_kanji %>さんの会員情報編集</h3>
 
 				<%= form_with model:@customer, local: true, url: "/admin/customers/#{@customer.id}" do |f| %>
+				<!-- エラーメッセージ表示-->
+				<% if @customer.errors.any? %>
+					<h3><%= @customer.errors.count %>error occurrence</h3><!--エラーメッセ-->
+					<ul>
+						<% @customer.errors.full_messages.each do |message| %>
+						<li><%= message %></li>
+						<% end %>
+					</ul>
+				<% end %>
+				<!-- エラーメッセージ表示-->
+
 					<table class="table borderless">
 						<tr>
 							<th>会員ID</th>

@@ -14,9 +14,9 @@
 						<% @orders.each do |order| %>
 
 							<tr>
-								<td><%= link_to order.created_at,"#" %></td>
-								<td><%= order.customer.full_name_kanji %></td>
-								<td><%= "#" %></td>
+								<td><%= link_to order.created_at.strftime("%Y-%m-%d %H:%M:%S"),admin_order_path(order.id) %></td>
+								<td><%= order.customer.fullname_kanji %></td>
+								<td><%= order.ordered_products.all.sum(:count) %></td>
 								<td><%= order.order_status %></td>
 							</tr>
 
