@@ -15,29 +15,29 @@
 						<%= attachment_image_tag cart.product, :image, :fill, 50, 100, fallback: "no_image.png", size: "100x50" %>
 						<%= cart.product.name %>
 					</td>
-					<td><%= tax_included(cart.product.price) %></td>
+					<td><%= tax_included(cart.product.price).to_s(:delimited) %></td>
 					<td><%= cart.count %></td>
-					<td><%= subprice(cart) %></td>
+					<td><%= subprice(cart).to_s(:delimited) %></td>
 				</tr>
-			<% end %>
+				<% end %>
 			</table>
 		</div>
-			<div class="col-xs-3">
-				<table class="table" border="1" style="border-collapse: collapse;">
-					<tr>
-						<th>送料</th>
-						<td><%= @order.postage %></td>
-					</tr>
-						<th>商品合計</th>
-						<td><%= total_price(current_cart) %></td>
-					<tr>
-						<th>請求金額</th>
-						<td><%= billing(@order) %></td>
-					</tr>
-				</table>
-			</div>
-				<div class="col-xs-9">
-					<table class="table order_table">
+		<div class="col-xs-3">
+			<table class="table" border="1" style="border-collapse: collapse;">
+				<tr>
+					<th>送料</th>
+					<td><%= @order.postage.to_s(:delimited) %></td>
+				</tr>
+				<th>商品合計</th>
+				<td><%= total_price(current_cart).to_s(:delimited) %></td>
+				<tr>
+					<th>請求金額</th>
+					<td><%= billing(@order).to_s(:delimited) %></td>
+				</tr>
+			</table>
+		</div>
+		<div class="col-xs-9">
+			<table class="table order_table">
 				<tr>	
 					<th>支払い方法<br>　</th>
 					<td><%= @order.payment %></td>
@@ -50,20 +50,18 @@
 					</td>
 				</tr>
 			</table>
-				</div>
-				<div class ="col-xs-12">
-      <%= form_with model: @order, url: "/orders", method: :post, local: true do |f| %>
-        <%= f.hidden_field :name %>
-        <%= f.hidden_field :postcode %>
-        <%= f.hidden_field :address %>
-        <%= f.hidden_field :payment %>
-        <%= f.hidden_field :postage, value: @order.postage %>
-        <%= f.hidden_field :billing_amount, value: billing(@order) %>
-        <%= f.submit "購入を確定する", class: "btn btn-success btn-lg btn_order_true" %>
-      <% end %>
-      </div>
-    <% else %>
-			</div>
 		</div>
+		<div class ="col-xs-12">
+			<%= form_with model: @order, url: "/orders", method: :post, local: true do |f| %>
+			<%= f.hidden_field :name %>
+			<%= f.hidden_field :postcode %>
+			<%= f.hidden_field :address %>
+			<%= f.hidden_field :payment %>
+			<%= f.hidden_field :postage, value: @order.postage %>
+			<%= f.hidden_field :billing_amount, value: billing(@order) %>
+			<%= f.submit "購入を確定する", class: "btn btn-success btn-lg btn_order_true" %>
+			<% end %>
+		</div>
+		<% else %>
 	</div>
 </div>
