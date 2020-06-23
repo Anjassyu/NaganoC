@@ -32,7 +32,7 @@ end
     post '/orders/confirm' => 'orders#confirm', as: 'orders_confirm'  #購入確認ページ
     get '/orders/thanks' => 'orders#thanks'  #注文完了後のお礼ページ(サンクスページ)
 
-    get '/products/genre_products/:id' => 'products#genre_products', :action => 'genre_products'
+    #get '/products/genres_products/:id' => 'products#genres_products', :action => 'genres_products'
 
 
     resources :customers, :only => [:show, :edit, :update]
