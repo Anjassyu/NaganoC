@@ -12,6 +12,8 @@ class Product < ApplicationRecord
 
 	attachment :image
 
-end
+    scope :from_genre, -> (genre_id){ where( genre_id: genre_id )}
 
+
+end
 

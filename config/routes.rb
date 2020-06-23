@@ -23,7 +23,7 @@ namespace :admin do
 end
 
 #customer
-    root "homes#top"   #会員topページ
+    root "products#top"   #会員topページ
     get 'products/genre_products/:id' => 'products#genre_products', :action => 'genre_products'
     get "home/about" => "homes#about"  #aboutページ
     get '/customers/:id/withdrow' => 'customers#withdrow', as: 'withdrow_customer' #退会画面
@@ -32,7 +32,7 @@ end
     post '/orders/confirm' => 'orders#confirm', as: 'orders_confirm'  #購入確認ページ
     get '/orders/thanks' => 'orders#thanks'  #注文完了後のお礼ページ(サンクスページ)
 
-    get '/products/genre_products/:id' => 'products#genre_products', :action => 'genre_products'
+    #get '/products/genres_products/:id' => 'products#genres_products', :action => 'genres_products'
 
 
     resources :customers, :only => [:show, :edit, :update]
