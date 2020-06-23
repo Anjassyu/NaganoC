@@ -1,6 +1,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-xs-12">
+			<%= render 'layouts/error_messages', model: @order %>
 			<h3 class="order_title">注文情報入力</h3>
 			<h3>支払い方法</h3>
 		<%= form_with model:@order, url:orders_confirm_path,  method: :post, local: true do |f| %>
