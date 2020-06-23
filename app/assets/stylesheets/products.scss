@@ -1,3 +1,56 @@
 // Place all the styles related to the products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.admin_top_title{
+	text-align: center;
+	margin-top: 20px;
+	margin-bottom: 50px;
+}
+.today_orders, .today_orders_count{
+	font-size: 24px;
+	display: inline;
+}
+.today_orders{
+	text-align: left;
+}
+.today_orders_count{
+	margin-left: 50px;
+}
+.product_field{
+	width: 200px;
+	margin-top: 10px;
+}
+.product_description{
+	height: 100px;
+}
+.new_title{
+	margin-top: 30px;
+	margin-bottom: 100px;
+	margin-left: 100px;
+}
+.btn_new{
+	margin-top: 50px;
+	width: 150px;
+}
+.product_text{
+	font-size: 18px;
+}
+.table_show{
+	margin: 0;
+}
+.description_edit{
+	height: 100px;
+	width: 200px;
+}
+.site-about-inner{
+	margin-top:50px;
+	margin-bottom:50px;
+}
+
+.row-ec-product-show{
+	margin-top:70px;
+	padding-left:10px;
+	padding-right:10px;
+}
+

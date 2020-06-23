@@ -1,14 +1,14 @@
 <div class='login'>
   <div class="row">
-    <h4>会員の方はこちらからログイン</h4>
+    <h4 clsss="guide">会員の方はこちらからログイン</h4>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
+  <div class="field1">
     <%= f.label :メールアドレス %>　
     <%= f.email_field :email, autofocus: true, autocomplete: "email",:size=>"60"%>
   </div>
 
-  <div class="field">
+  <div class="field1">
     <%= f.label :パスワード %>　　　
     <%= f.password_field :password, autocomplete: "current-password",:size=>"60" %>
   </div>
@@ -19,7 +19,7 @@
   </div>
 <% end %>
 
-  <h4>登録がお済みでない方</h4>
+  <h4 class="guide">登録がお済みでない方</h4>
 <%= link_to "こちら",new_customer_registration_path,class: "btn btn-outline-danger" %>    から新規登録を行ってください。
 </div>
 </div>

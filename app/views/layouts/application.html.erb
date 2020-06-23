@@ -8,7 +8,6 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
     <% if current_customer.nil? && current_admin.nil? %>
     <%= render 'layouts/logout_header' %>  
     <% end %>
@@ -22,6 +21,10 @@
     <% end %>
 
   <body>
+    <%= notice %>
     <%= yield %>
   </body>
+
+    <%= render 'layouts/footer' %>
+
 </html>
