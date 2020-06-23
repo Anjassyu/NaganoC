@@ -1,12 +1,12 @@
 <div class="my_page">
   <div class="row">
-    <h3 class="head">マイページ</h3>
+    <h3 class=my>マイページ</h3>
 
-<strong class=>登録情報</strong>　
-<%= link_to"編集する",edit_customer_path,class: "btn btn-primary" %>　
-<%= link_to"パスワードを変更する",edit_customer_registration_path,class: "btn btn-primary" %><br>
+    <strong class=>登録情報</strong>　
+    <%= link_to"編集する",edit_customer_path,class: "btn btn-primary" %>　
+    <%= link_to"パスワードを変更する",edit_customer_registration_path,class: "btn btn-primary" %><br>
 
-<table class='table1'>
+    <table class='table1'>
 	<thead>
 	<tr class="border">
 		<th>氏名</th>
@@ -34,28 +34,22 @@
 		<th>メールアドレス</th>
 		<th><%=@customer.email %></th>
 	</tr>
-	<tr class="border">
-		<th>メ</th>
-		<th><%=@customer.admission_status %></th>
-	</tr>
     </thead>
-</table>
+    </table>
 
-<strong>配送先</strong>　　
-<%= link_to"一覧を見る",deliveries_path,class: "btn btn-primary" %><br>
-<br>
-<strong>注文履歴</strong>　
-<%= link_to"一覧を見る",orders_path,class: "btn btn-primary" %><br>
+    <strong>配送先</strong>　　
+    <%= link_to"一覧を見る",deliveries_path,class: "btn btn-primary" %><br>
+    <br>
+    <strong>注文履歴</strong>　
+    <%= link_to"一覧を見る",orders_path,class: "btn btn-primary" %><br>
 
   </div>
 </div>
 
+
+
 　<!-- #showページ用 -->
   <style>
-  .my_page{
-  	padding: 30px 0 50px 100px;
-  }
-
   .table1{
   	margin: 20px 0;
   }

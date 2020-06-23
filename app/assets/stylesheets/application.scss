@@ -36,3 +36,16 @@
 	height : 30px;
 	width: 200px;
 }
+
+body{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.footer {
+  margin-top: auto;
+  width: 100%;
+  height: 80px;
+  text-align: center;
+  background-color: #89c7de;
+}
