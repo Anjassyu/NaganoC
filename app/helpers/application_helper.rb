@@ -19,7 +19,7 @@ module ApplicationHelper
     end
     return price
   end
-  #送料込み請求金額
+  #送料込請求金額
   def billing(order)
     total_price(current_cart) + order.postage
   end
