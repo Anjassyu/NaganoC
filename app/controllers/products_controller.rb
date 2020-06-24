@@ -16,6 +16,7 @@ def index
 end
 
 def show
+	@genres = Genre.all
 	@product = Product.find(params[:id])
 	@cart_item = CartItem.new
 end
