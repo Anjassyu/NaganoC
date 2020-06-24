@@ -6,18 +6,17 @@ end
 
 
 def index
-	 @products = Product.all.page(params[:page]).per(8)
 	 @genres = Genre.all
   if params[:genre_id]
      @genre = Genre.find(params[:genre_id])
-  	 @products = Product.from_genre(params[:genre_id]).all.page(params[:page]).per(8)
+  	 @products = Product.from_genre(params[:genre_id]).page(params[:page]).per(8)
   else
   	 @products = Product.all.page(params[:page]).per(8)
   end
-	
 end
 
 def show
+	@genres = Genre.all
 	@product = Product.find(params[:id])
 	@cart_item = CartItem.new
 end
