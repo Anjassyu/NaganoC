@@ -10,7 +10,7 @@ class Order < ApplicationRecord
 	validates :postage, :billing_amount, numericality: { only_integer: true }
 
 	enum payment: {クレジットカード:1, 銀行振込:2}
-
+	enum order_status:{入金待ち:1,入金確認:2,製作中:3,発送準備中:4,発送済み:5}
 
 	def fullname_kanji
      [family_name_kanji, first_name_kanji].join('')
