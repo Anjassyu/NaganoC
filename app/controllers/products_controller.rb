@@ -13,7 +13,6 @@ def index
   else
   	 @products = Product.all.page(params[:page]).per(8)
   end
-	
 end
 
 def show
