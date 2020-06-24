@@ -22,6 +22,7 @@ Customer.create!(
     tel: '09011111111',
 	admission_status: true)
 
+
 Genre.create!(
 	name: 'プリン',
 	effectiveness: true)
@@ -38,3 +39,4 @@ Delivery.create!(
 	name: '浜田　雅功',
 	postcode: '1234567',
 	address: '東京都新宿区歌舞伎町')
+

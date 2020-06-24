@@ -2,25 +2,27 @@
 	<div class="row">
 
 			<h3>会員一覧</h3>
-			　	<table class="table">
-						<tr class="active">
-							<th>会員ID</th>
-							<th>氏名</th>
-							<th>メールアドレス</th>
-							<th>ステータス</th>
-						</tr>
+				<div class="col-xs-8 col-xs-offset-2">
+				　	<table class="table">
+							<tr class="active">
+								<th>会員ID</th>
+								<th>氏名</th>
+								<th>メールアドレス</th>
+								<th>ステータス</th>
+							</tr>
 
-					<% @customers.each do |customer| %>
+						<% @customers.each do |customer| %>
 
-						<tr>
-							<td><%= customer.id %></td>
-							<td><%= link_to customer.fullname_kanji,admin_customer_path(customer.id),:style=>"color:black;"  %></td>
-							<td><%= customer.email %></td>
-							<td><%= customer.admission_status_name %></td>
-						</tr>
+							<tr>
+								<td><%= customer.id %></td>
+								<td><%= link_to customer.fullname_kanji,admin_customer_path(customer.id),:style=>"color:black;"  %></td>
+								<td><%= customer.email %></td>
+								<td><%= customer.admission_status_name %></td>
+							</tr>
 
-					<% end %>
-				</table>
+						<% end %>
+					</table>
+				</div>
 			<div class="col-xs-12 text-center pagination">
 					<%= paginate @customers %>
 			</div>
