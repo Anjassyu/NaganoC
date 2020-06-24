@@ -19,7 +19,7 @@ namespace :admin do
     resources :genres, :only => [:edit, :update, :create, :index]
     resources :customers, :only => [:edit, :update, :show, :index]
     resources :ordered_products, :only => :update
-    resources :orders, :only => [:update, :show, :index]
+    resources :orders, :only => [:index, :show, :update]
 end
 
 #customer

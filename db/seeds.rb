@@ -20,6 +20,7 @@ Customer.create!(
 	postcode: '123456',
 	address: '東京都渋谷区渋谷１−２−３',
     tel: '09011111111',
+    
 	admission_status: true)
 
 

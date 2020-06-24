@@ -6,8 +6,23 @@ class Admin::OrdersController < ApplicationController
 
 		elsif params[:created_at]
 
-		  @orders = Order.created_today(params[:creted_at]).page(params[:page]).per(10)
+		 @orders = Order.created_today(params[:creted_at]).page(params[:page]).per(10)
 		end
+	end
+
+	def show
+		@ordered_products = OrderedProduct.all
+		@order = Order.find(params[:id])
+	end
+
+	def update
+		@ordered_products = OrderedProduct.all
+		@order = Order.find(params[:id])
+		if @order.update(order_params)
+		redirect_to admin_orders_path, notice: '情報を更新しました。'
+	    else
+	    	render "show"
+	    end
 	end
 
 	private
@@ -23,3 +38,4 @@ class Admin::OrdersController < ApplicationController
 	    							  :order_status)
 	end
 end
+
