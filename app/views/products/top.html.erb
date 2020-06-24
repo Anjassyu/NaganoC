@@ -2,7 +2,7 @@
 
 <div class="container">
 	<div class="row">
-		<div class="col-xs-2">サイドバー
+		<div class="col-xs-2"><%= render '/products/genres_search', products: @products %>
 		</div>
 
 
@@ -17,7 +17,7 @@
 						<p>購入には会員登録が必要になります。</p>
 					</div>
 				</div>
-			 </div>
+
 
 
 					<div class="col-xs-12">
@@ -31,19 +31,19 @@
 
 						<%= attachment_image_tag product, :image,class: "img-responsive",
 						 fallback: "no_image.png" %>
-						<ul class="list-inline ">
+						<ul class="list-inline">
 							<li><strong>商品名</strong></li>
 							<li><%= product.name %></li>
 						</ul>
 
-						<ul>
+						<ul class="list-inline">
 							<li><strong>¥<%= product.price %></strong></li>
 						</ul>
 					</div>
 				<% end %>
 
 
-				<div class="col-xs-12 text-right"><%= link_to "もっと見る＞＞",products_path %></div>
+			<div class="col-xs-12 text-right"><%= link_to "もっと見る＞＞",products_path %></div>
 		</div>
 
 

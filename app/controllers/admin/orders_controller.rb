@@ -1,6 +1,7 @@
 class Admin::OrdersController < ApplicationController
 
 	def index
+		@orders = Order.all.page(params[:page]).per(10)
 		if params[:customer_id]
 	  	 @orders = Order.from_customer(params[:customer_id]).page(params[:page]).per(10)
 
