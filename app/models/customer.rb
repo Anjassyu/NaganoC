@@ -9,7 +9,7 @@ class Customer < ApplicationRecord
 	has_many :cart_items, dependent: :destroy
 
   validates :email, presence: true
-  validates :password, presence: true
+
   validates :password,
   presence: true,
   length: { in: Devise.password_length },
