@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+   before_action :authenticate_customer!
 
 	def new
 		@order = Order.new
@@ -31,11 +32,18 @@ class OrdersController < ApplicationController
     	@order.postcode = params[:order][:postcode]
     	@order.address = params[:order][:address]
     	@order.name = params[:order][:name]
+    	Delivery.create!(
+    		customer: current_customer,
+    		postcode: @order.postcode,
+    		address: @order.address,
+    		name: @order.name
+    		)
+    end
 
     	if @order.postcode.blank? == true || @order.address.blank? == true || @order.name.blank? == true 
        redirect_to new_order_path, notice: "ご入力に不備があります。"
     	end
-    end
+  
 	end
 
 	def create
@@ -46,6 +54,10 @@ class OrdersController < ApplicationController
 			@derivery_address = Delivery.where(customer: current_customer)
 			render :new
 		end
+
+		if params[:order][:ship] == "1"
+      current_customer.shipping_address.create(address_params)
+    end
 
 		@cart_items = current_customer.cart_items
     @cart_items.each do |cart_item|
@@ -69,7 +81,7 @@ class OrdersController < ApplicationController
 	end
 
 	def index
-		@orders = Order.all
+		@orders = current_customer.orders
 	end
 
 	def show
