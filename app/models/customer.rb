@@ -9,7 +9,18 @@ class Customer < ApplicationRecord
 	has_many :cart_items, dependent: :destroy
 
   validates :email, presence: true
-  validates :password, presence: true
+  validates :password,
+  presence: true,
+  length: { in: Devise.password_length },
+  confirmation: true,
+  on: :create
+
+  validates :password,
+  allow_nil: true,
+  length: { in: Devise.password_length },
+  confirmation: true,
+  on: :update
+
   validates :family_name_kanji, presence: true,format: { with: /\A[一-龥]+\z/}
   validates :family_name_kana, presence: true,format: { with: /\A[ァ-ヶー－]+\z/}
   validates :first_name_kanji, presence: true,format: { with: /\A[一-龥]+\z/}

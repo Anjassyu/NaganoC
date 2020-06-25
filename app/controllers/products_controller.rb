@@ -11,7 +11,7 @@ def index
      @genre = Genre.find(params[:genre_id])
   	 @products = Product.from_genre(params[:genre_id]).page(params[:page]).per(8).order(updated_at: :desc)
   else
-  	 @products = Product.all.page(params[:page]).per(8)order(updated_at: :desc)
+  	 @products = Product.all.page(params[:page]).per(8).order(updated_at: :desc)
   end
 end
 
