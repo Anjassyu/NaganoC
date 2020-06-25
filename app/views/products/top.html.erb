@@ -28,17 +28,18 @@
 
 					<div class="col-xs-3">
 
+						<%= link_to product_path(product.id) ,:style=>"color:black;"  do %>
+							<%= attachment_image_tag product, :image,class: "img-responsive",
+							 fallback: "no_image.png" %>
+							<ul class="list-inline">
+								<li><strong>商品名</strong></li>
+								<li><%= product.name %></li>
+							</ul>
 
-						<%= attachment_image_tag product, :image,class: "img-responsive",
-						 fallback: "no_image.png" %>
-						<ul class="list-inline">
-							<li><strong>商品名</strong></li>
-							<li><%= product.name %></li>
-						</ul>
-
-						<ul class="list-inline">
-							<li><strong>¥<%= product.price %></strong></li>
-						</ul>
+							<ul class="list-inline">
+								<li><strong>¥<%= product.price %></strong></li>
+							</ul>
+						<% end %>
 					</div>
 				<% end %>
 
