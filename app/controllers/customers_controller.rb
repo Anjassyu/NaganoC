@@ -10,9 +10,12 @@ class CustomersController < ApplicationController
 	end
 
 	def update
-		@customer = Customer.find(params[:id])
-		@customer.update(customer_params)
-		redirect_to customer_path(@customer.id)
+		if  @customer = Customer.find(params[:id])
+		    @customer.update(customer_params)
+		    redirect_to customer_path(@customer.id)
+		else
+			render "edit"
+		end
 	end
 
 	def withdrow
@@ -20,11 +23,11 @@ class CustomersController < ApplicationController
 	end
 
 	def switch
-		@customer = Customer.find(params[:id])
-       if @customer.update(admission_status: false)
-          sign_out current_customer #URLを踏ませずにコントローラーから直接サインアウトの指示を出す（device公式)
-       end
-       redirect_to root_path
+		    @customer = Customer.find(params[:id])
+        if  @customer.update(admission_status: false)
+            sign_out current_customer #URLを踏ませずにコントローラーから直接サインアウトの指示を出す（device公式)
+        end
+            redirect_to root_path
 	end
 
 	private

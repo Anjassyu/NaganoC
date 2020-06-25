@@ -44,11 +44,11 @@ class CartItemsController < ApplicationController
    end
 
    def calculate(customer)
-     total_price = 0
-     customer.cart_items.each do |cart_item|
-     total_price += cart_item.count * cart_item.product.price
+       total_price = 0
+       customer.cart_items.each do |cart_item|
+       total_price += (cart_item.product.price * 1.1).floor * cart_item.count
    end
-     return (total_price * 1.1).floor
+       return (total_price ).floor
    end
 
 end
