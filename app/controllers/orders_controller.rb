@@ -55,10 +55,6 @@ class OrdersController < ApplicationController
 			render :new
 		end
 
-		if params[:order][:ship] == "1"
-      current_customer.shipping_address.create(address_params)
-    end
-
 		@cart_items = current_customer.cart_items
     @cart_items.each do |cart_item|
     OrderedProduct.create!(
