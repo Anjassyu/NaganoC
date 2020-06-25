@@ -23,6 +23,7 @@ class Admin::OrdersController < ApplicationController
 		@order.update(order_params)
 		@ordered_products = @order.ordered_products
 		redirect_to admin_order_path(@order), notice: '情報を更新しました。'
+		
 		if @order.order_status == "入金確認"
 			@order.ordered_products.update(production_status: 2)
 		end
