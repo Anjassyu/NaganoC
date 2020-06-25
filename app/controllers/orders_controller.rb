@@ -48,16 +48,12 @@ class OrdersController < ApplicationController
 
 	def create
 		@order = current_customer.orders.new(order_params)
-		if @order.save!
+		if @order.save
 			redirect_to orders_thanks_path, notice: "ご注文が確定しました。"
 		else
 			@derivery_address = Delivery.where(customer: current_customer)
 			render :new
 		end
-
-		if params[:order][:ship] == "1"
-      current_customer.shipping_address.create(address_params)
-    end
 
 		@cart_items = current_customer.cart_items
     @cart_items.each do |cart_item|

@@ -1,7 +1,7 @@
 class Admin::ProductsController < ApplicationController
 	 before_action :authenticate_admin!
 	def top
-		@today_orders = Product.where(created_at: Date.today)
+		@today_orders = Order.where(created_at: Time.zone.now.all_day)
 	end
 
 	def index
