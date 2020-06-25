@@ -14,11 +14,12 @@ class Admin::ProductsController < ApplicationController
 
 	def create
 		@product = Product.new(product_params)
-		if @product.save
-    	redirect_to admin_products_path, notice: '商品を新規登録しました。'
-    else
+	 if @product.save
+    	redirect_to admin_product_path(@product.id), notice: '商品を新規登録しました。'
+     else
+     	@products = Product.page(params[:page])
     	render "new"
-    end
+     end
 	end
 	
 	def show
@@ -31,11 +32,11 @@ class Admin::ProductsController < ApplicationController
 	
 	def update
 		@product = Product.find(params[:id])
-		if @product.update(product_params)
-			redirect_to admin_products_path, notice: '商品情報を更新しました。'
-		else
-			render "edit"
-		end
+	 if @product.update(product_params)
+		redirect_to admin_product_path(@product.id), notice: '商品情報を更新しました。'
+	 else
+		render "edit"
+	 end
 	end
 
   private
@@ -43,6 +44,5 @@ class Admin::ProductsController < ApplicationController
   def product_params
   	params.require(:product).permit(:genre_id, :name, :description, :price, :sales_status, :image)
   end
-
 
 end
