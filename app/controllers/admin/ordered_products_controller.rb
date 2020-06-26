@@ -1,7 +1,7 @@
 class Admin::OrderedProductsController < ApplicationController
 
 	before_action :authenticate_admin!
-	
+
 	def update
 		@ordered_product = OrderedProduct.find(params[:id])
 		@ordered_product.update(ordered_product_params)
@@ -13,7 +13,7 @@ class Admin::OrderedProductsController < ApplicationController
 		end
 
 		@ordered_products = OrderedProduct.where(order_id: @order)
-		if @ordered_products.where(production_status: 4).count == @ordered_products.where(order_id: @order).count
+		if @ordered_products.where(production_status: 4).count == @ordered_products.all.count
 			@order.update(order_status: "発送準備中")
 		end
 	end
