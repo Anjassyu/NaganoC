@@ -48,7 +48,7 @@
 			<td><%= subprice(ordered_product).to_s(:delimited) %></td>
 
 			<%= form_for ordered_product, url: "/admin/ordered_products/#{ordered_product.id}" do |f| %>
-			<td><%= f.select :production_status, {"着手不可":1,"制作待ち":2,"製作中":3,"制作完了":4}, { include_blank:'選択してください'}, { required: true} %></td>
+			<td><%= f.select :production_status, {"着手不可":0,"制作待ち":1,"製作中":2,"制作完了":3}, { include_blank:'選択してください'}, { required: true} %></td>
 			<td><%= f.submit "更新", class: "btn btn-primary" %></td>
 		</tr>
 		<% end %>
