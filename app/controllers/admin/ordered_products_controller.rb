@@ -8,12 +8,12 @@ class Admin::OrderedProductsController < ApplicationController
 		redirect_to admin_order_path(@ordered_product.order_id), notice: '情報を更新しました。'
 
 		@order = @ordered_product.order
-		if @ordered_product.production_status == 3
+		if @ordered_product.production_status == 2
 			@order.update(order_status: "製作中")
 		end
 
 		@ordered_products = OrderedProduct.where(order_id: @order)
-		if @ordered_products.where(production_status: 4).count == @ordered_products.where(order_id: @order).count
+		if @ordered_products.where(production_status: 3).count == @ordered_products.where(order_id: @order).count
 			@order.update(order_status: "発送準備中")
 		end
 	end
