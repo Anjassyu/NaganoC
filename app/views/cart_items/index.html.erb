@@ -25,7 +25,7 @@
               	<% @customer.cart_items.each do |cart_item| %>
                   <tr class="border">
                     <td><%= attachment_image_tag cart_item.product,:image,size: '50x50',fallback: "no_image.png" %></td>
-                    <td><span>　　<%= cart_item.product.name %></span></td>
+                    <td><span>　　<%= cart_item.product.name %>　</span></td>
                     <td class="border"><%= (cart_item.product.price * 1.1).floor %>　円</td>
                     <td class="border">
                       <%= form_for(cart_item) do |f| %>
