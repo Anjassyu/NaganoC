@@ -54,3 +54,46 @@
 	padding-right:10px;
 }
 
+
+.top-img-box{
+  object-fit: contain;
+  width: 200px;
+  height: 200px;
+  background-color: #fff;
+  border: 1px solid #fff;
+}
+
+.row-eq-height {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#container-100{
+  height: 400px;
+}
+
+.image1 {
+background-image: url(image1.jpg);
+}
+.image2 {
+background-image: url(image2.jpg);
+}
+.image3 {
+background-image: url(image3.jpg);
+}
+.image4 {
+background-image: url(image4.jpg);
+}
+
+.product-index{
+	width:100% ;
+	padding-left:10px;
+}
+
+.pdindex-wrap{
+	display:flex;
+	flex-wrap: wrap;
+}
+
+
+

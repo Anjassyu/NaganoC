@@ -42,7 +42,7 @@ end
 
 private
 def delivery_params
-	params.permit(:postcode, :address, :name, :customer_id)
+	params.require(:delivery).permit(:postcode, :address, :name, :customer_id)
 end
 
 end
