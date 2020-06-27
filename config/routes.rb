@@ -15,6 +15,7 @@ devise_for :customers, controllers: {
 
 namespace :admin do
     root "products#top"  #管理者topページ
+    get 'search', to: 'search#search'
     resources :products, :except => :destroy
     resources :genres, :only => [:edit, :update, :create, :index]
     resources :customers, :only => [:edit, :update, :show, :index]
