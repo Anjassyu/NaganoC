@@ -1,12 +1,13 @@
 <div class="container">
 <div class="row">
-<!-- #<% if flash[:notice] %>
+  <% if flash[:notice] %>
   <p><%= flash[:notice] %></p>
-<% end %> -->
+<% end %> 
+
 <h2>配送先登録/一覧</h2>
 
 
-    <%= form_with url: "/deliveries", method: :post, local: true do |form| %>
+    <%= form_with model: @delivery, url: "/deliveries", method: :post, local: true do |form| %>
 		    <div class="field">
            <%= form.label :postcode, "郵便番号（ハイフンなし" %>
            <%= form.text_field :postcode %>

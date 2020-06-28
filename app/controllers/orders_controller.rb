@@ -32,7 +32,7 @@ class OrdersController < ApplicationController
     	@order.postcode = params[:order][:postcode]
     	@order.address = params[:order][:address]
     	@order.name = params[:order][:name]
-    	Delivery.create!(
+    	Delivery.create(
     		customer: current_customer,
     		postcode: @order.postcode,
     		address: @order.address,
@@ -57,7 +57,7 @@ class OrdersController < ApplicationController
 
 		@cart_items = current_customer.cart_items
     @cart_items.each do |cart_item|
-    OrderedProduct.create!(
+    OrderedProduct.create(
       product: cart_item.product,
       order: @order,
       count: cart_item.count,

@@ -13,7 +13,7 @@ class Admin::OrderedProductsController < ApplicationController
 		end
 
 		@ordered_products = OrderedProduct.where(order_id: @order)
-		if @ordered_products.where(production_status: 3).count == @ordered_products.where(order_id: @order).count
+		if @ordered_products.where(production_status: 3).count == @ordered_products.all.count
 			@order.update(order_status: "発送準備中")
 		end
 	end
