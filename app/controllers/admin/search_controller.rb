@@ -9,7 +9,7 @@ class Admin::SearchController < ApplicationController
 	private
 	def search_for(model, content)
 	 	if model == "customer"
-	 		Customer.where('family_name_kana LIKE ?','%'+content+'%')
+	 		Customer.where('family_name_kanji LIKE ? OR family_name_kana LIKE ? OR first_name_kanji LIKE ? OR first_name_kana LIKE ?','%'+content+'%','%'+content+'%','%'+content+'%','%'+content+'%')
 	 	elsif model == 'product'
 	 		Product.where('name LIKE ?', '%'+content+'%')
 	 	end

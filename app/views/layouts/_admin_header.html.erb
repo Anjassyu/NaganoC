@@ -24,7 +24,7 @@
 						<td></td>
 						<td>
 						    <%= form_tag(admin_search_path, method: :get) do %>
-								<%= select_tag 'search[model]', options_for_select({ "会員苗字カナ" => "customer", "商品" => "product" }) %>
+								<%= select_tag 'search[model]', options_for_select({ "会員" => "customer", "商品" => "product" }) %>
 								<%= text_field_tag 'search[content]'%>
 
 	     						<%= submit_tag '検索' %>
