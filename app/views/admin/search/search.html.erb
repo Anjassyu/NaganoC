@@ -1,0 +1,79 @@
+<% if @model == 'customer' %>
+<div class="container">
+	<div class="row">
+
+			<h3>会員一覧</h3>
+				<div class="col-xs-8 col-xs-offset-2">
+				　	<table class="table">
+							<tr class="active">
+								<th>会員ID</th>
+								<th>氏名</th>
+								<th>メールアドレス</th>
+								<th>ステータス</th>
+							</tr>
+
+						<% @records.each do |customer| %>
+
+							<tr>
+								<td><%= customer.id %></td>
+								<td><%= link_to customer.fullname_kanji,admin_customer_path(customer.id),:style=>"color:black;"  %></td>
+								<td><%= customer.email %></td>
+								<td><%= customer.admission_status_name %></td>
+							</tr>
+
+						<% end %>
+					</table>
+				</div>
+			<div class="col-xs-12 text-center pagination">
+
+			</div>
+	</div>
+</div>
+
+
+<% elsif @model == 'product' %>
+
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12">
+			<h3>商品一覧</h3>
+			<div style="position:absolute; top: 30px; right: 15px;">
+	<%= link_to new_admin_product_path do %>
+		<span class="btn btn-primary">＋</span>
+	<% end %>
+</div>
+			<table class="table">
+			<tr>
+				<th>商品ID</th>
+				<th>商品名</th>
+				<th>税抜価格</th>
+				<th>ジャンル</th>
+				<th>ステータス</th>
+			</tr>
+			<% @records.each do |product| %>
+			<tr>
+				<td><%= product.id %></td>
+				<td>
+					<%= link_to "/admin/products/#{product.id}" do %>
+					<%= product.name %>
+					<% end %>
+				</td>
+				<td><%= product.price %>円</td>
+				<td><%= product.genre.name %></td>
+				<td>
+			<% if product.sales_status == true %>
+		    販売中
+		  <% elsif product.sales_status == false %>
+		    販売停止中
+		  <% end %>
+				</td>
+			</tr>
+			<% end %>
+		</table>
+
+		</div>
+	</div>
+</div>
+
+<% end %>
+
